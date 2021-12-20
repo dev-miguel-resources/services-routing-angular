@@ -1,6 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+// Routes
+import { APP_ROUTING } from "./app.routes";
+
+// Services
+import { AnimalesService } from "./services/animales.service";
+
 import { AppComponent } from './app.component';
 import { AboutComponent } from './components/about/about.component';
 import { AnimalComponent } from './components/animal/animal.component';
@@ -22,9 +28,10 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
     NavbarComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    APP_ROUTING 
   ],
-  providers: [],
+  providers: [AnimalesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
