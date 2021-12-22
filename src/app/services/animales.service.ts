@@ -83,11 +83,11 @@ export class AnimalesService {
     console.log('El servicio ya se puede utilizar!!');
   }
 
-  getAnimales() {
+  getAnimales(): Animal[] {
     return this.animales;
   }
 
-  getAnimal(idx: number) {
+  getAnimal(idx: number): Animal {
     return this.animales[idx];
   }
 
