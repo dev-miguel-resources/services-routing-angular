@@ -15,6 +15,8 @@ import { AnimalesComponent } from './components/animales/animales.component';
 import { BuscadorComponent } from './components/buscador/buscador.component';
 import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,13 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
   ],
   imports: [
     BrowserModule,
-    APP_ROUTING 
+    APP_ROUTING,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    }) 
   ],
   providers: [AnimalesService],
   bootstrap: [AppComponent]
